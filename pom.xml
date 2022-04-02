@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<kotlin.version>1.6.10</kotlin.version>
+		<httpclient.version>4.5.2</httpclient.version>
 		<opencsv>5.5.2</opencsv>
 		<spring-aspects.version>5.2.8.RELEASE</spring-aspects.version>
 		<springmockk.version>3.0.1</springmockk.version>
@@ -81,7 +82,7 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.2</version>
+			<version>${httpclient.version}</version>
 		</dependency>
 
 		<dependency>

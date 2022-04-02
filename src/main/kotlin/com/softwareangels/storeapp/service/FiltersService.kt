@@ -21,13 +21,13 @@ class FiltersService (
     private val allStoreDataRepository: ProductRepository,
     private val specificationService: SpecificationService){
 
+    @Value("\${app.page-limit}")
+    val pageLimit: Int = 0
+
     fun getAllAvailableFieldsToFilter() : List<AvailableField>  {
         var source: MutableIterable<AvailableField> = availableFieldsRepository.findAll()
         return Streamable.of(source).toList()
     }
-
-    @Value("\${app.page-limit}")
-    val pageLimit: Int = 0
 
     fun listRemainingFilter(currentFilter: String, filters : List<Filter>, page: Int): Set<String> {
 
