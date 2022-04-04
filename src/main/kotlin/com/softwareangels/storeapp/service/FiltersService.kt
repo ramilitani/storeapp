@@ -43,7 +43,7 @@ class FiltersService (
         val data = allStoreDataRepository.findAll(specs, PageRequest.of(page, pageLimit)).content
         return convertToSet(data
             .map<Product?, String> { readInstanceProperty(it!!, availableField?.dbFieldName!!)}
-            .filter { name -> name.isNotBlank() })
+            .filter { name -> name != null })
     }
 
     private fun <R> readInstanceProperty(instance: Any, propertyName: String): R {
