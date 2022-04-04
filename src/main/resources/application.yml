@@ -1,0 +1,49 @@
+app:
+  scheduler:
+    enabled: true
+    delay: 3600000
+    initial-delay:
+      clusters: 15000
+      regions: 15001
+      stores: 15002
+      csvProducts: 15003
+      products: 15004
+  retry:
+    max-attempts:
+      clusters: 3
+      regions: 3
+      stores: 3
+      csvProducts: 3
+      products: 350
+    delay: 3000
+  api:
+    api-key: 76a325g7g2ahs7h4673aa25s47632h5362a4532642
+    clusters: http://134.209.29.209:3000/clusters
+    regions: http://134.209.29.209:3000/regions
+    stores: http://134.209.29.209:3000/stores
+    products: http://134.209.29.209:3000/stores/products
+    productsCSV: http://134.209.29.209:3000/product-data.csv
+  page-limit: 100
+
+spring:
+  datasource:
+    initialization-mode: always
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/storeapp
+    username: postgres
+    password: admin
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+server:
+  servlet:
+    context-path: /storeApp
+
+
